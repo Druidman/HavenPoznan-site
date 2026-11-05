@@ -76,7 +76,9 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    /* Room for the pinned banner + navbar stack, so anchored sections do not
+       hide their headings underneath the top chrome. */
+    scroll-padding-top: 8rem;
   }
 
   body {
@@ -376,5 +378,31 @@
     .banner-pulse {
       animation: none;
     }
+  }
+
+  /* The sponsors thank-you letter: a sheet of paper with faint ruled lines
+     under the text, so it reads as handwriting on a real letter. */
+  .sponsor-letter {
+    background-image: repeating-linear-gradient(
+      transparent 0,
+      transparent calc(1.5em - 1px),
+      rgb(184 194 32 / 0.14) calc(1.5em - 1px),
+      rgb(184 194 32 / 0.14) 1.5em
+    );
+  }
+
+  /* Each sponsor logo sits like a stamp pinned to the corner of the scene:
+     a slightly tilted card that straightens on hover. */
+  .sponsor-stamp {
+    rotate: var(--tilt, 0deg);
+    transition:
+      rotate 250ms var(--ease-bounce),
+      translate 250ms var(--ease-bounce);
+  }
+
+  .sponsor-stamp:hover,
+  .sponsor-stamp:focus-visible {
+    rotate: 0deg;
+    translate: 0 -0.25rem;
   }
 }

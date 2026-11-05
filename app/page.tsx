@@ -10,7 +10,6 @@ import PastEvents from "@/components/PastEvents";
 import Sponsors from "@/components/Sponsors";
 import Faq from "@/components/Faq";
 import SiteFooter from "@/components/SiteFooter";
-import TopBanner from "@/components/TopBanner";
 
 const images: SiteImages = havenPoznan.images;
 
@@ -41,8 +40,6 @@ export default function Page() {
       >
         Skip to content
       </a>
-
-      <TopBanner />
 
       <SiteHeader images={images} />
 

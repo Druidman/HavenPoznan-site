@@ -46,6 +46,12 @@ export interface Sponsor {
   href: string;
 }
 
+/** The thank-you note shown next to the sponsor logos. */
+export interface SponsorThanks {
+  title: string;
+  body: string[];
+}
+
 export interface ScheduleDay {
   day: string;
   items: { time: string; title: string; body?: string }[];
@@ -69,16 +75,12 @@ export const imageDefaults = {
   // Shared
   logo: "/images/logo.webp",
   navBanner: "/images/nav-banner.png",
-  mapPin: "/images/map-flag.png",
 
   // Hero
   heroBackground: "/images/hero/hero-bg-no-sticky-tree.webp",
-  heroArrow: "/images/hero/hero-arrow.webp",
-  heroArrowMobile: "/images/hero/hero-arrow-white.webp",
   heroForeground: "/images/hero-foreground.webp",
   hedgehog: "/images/hedgehog.webp",
   scrollArrow: "/images/triangle-down.svg",
-  signupArrow: "/images/signup-arrow.webp",
 
   // The illustrated backdrops the middle of the page sits on (CSS backgrounds).
   stageMiddle: "/images/bg-middle.webp",
@@ -419,6 +421,14 @@ export const havenPoznan = {
   },
   sponsors: {
     heading: "Nasi sponsorzy",
+    // A short thank-you note from the team, shown next to the sponsor logos.
+    thanks: {
+      title: "Dziękujemy!",
+      body: [
+        "Ten event dzieje się dzięki ludziom, którzy uwierzyli w pomysł zanim cokolwiek się wydarzyło. Bez was nie byłoby tego wszystkiego — dziękujemy z całego serca!",
+        "— ekipa Haven Poznań",
+      ],
+    },
     items: [
       {
         name: "cyberfolks",

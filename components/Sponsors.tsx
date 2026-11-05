@@ -1,36 +1,16 @@
 import { havenPoznan, type SiteImages } from "@/site/site";
 
-const ROW_SIZE = 3;
-
-const sponsorRowPadding = [
-  "top-[0%]",
-  "mt-0 sm:mt-[clamp(0rem,1vw,3rem)] md:mt-[clamp(1rem,2vw,5rem)]",
-  "mt-0 sm:mt-[clamp(0rem,2vw,1.5rem)] md:mt-[clamp(1rem,2vw,3rem)]",
-  "mt-0 sm:mt-[clamp(0rem,2vw,1.5rem)] md:mt-[clamp(1rem,2vw,3rem)]",
-  "mt-0 sm:mt-[clamp(0rem,2vw,1.5rem)] md:mt-[clamp(1rem,2vw,3rem)]",
-];
-
-const boxRowPadding = [
-  "mt-0",
-  "mt-[clamp(2rem,10vw,4rem)] sm:mt-[clamp(2rem,5vw,5rem)] md:mt-[clamp(3rem,7vw,6rem)]",
-  "mt-[clamp(2rem,8vw,4rem)] sm:mt-[clamp(2rem,5vw,4rem)] md:mt-[clamp(2rem,6vw,6rem)]",
-  "mt-[clamp(2rem,8vw,4rem)] sm:mt-[clamp(2rem,5vw,4rem)] md:mt-[clamp(2rem,6vw,6rem)]",
-  "mt-[clamp(2rem,8vw,4rem)] sm:mt-[clamp(2rem,5vw,4rem)] md:mt-[clamp(2rem,6vw,6rem)]",
-];
-
+/**
+ * The sponsors section, redesigned as a thank-you letter: a paper card
+ * addressed to the sponsors sits in the middle of the picnic scene, and the
+ * sponsor logos hang beside it like postage stamps. The illustrated edges,
+ * bushes and pumpkins from the haven/* backdrop stay, framing the letter.
+ */
 export default function Sponsors({ images }: { images: SiteImages }) {
   const { sponsors } = havenPoznan;
-  const items = sponsors.items;
-  const rows: typeof items[] = [];
-  for (let i = 0; i < items.length; i += ROW_SIZE) {
-    rows.push(items.slice(i, i + ROW_SIZE));
-  }
-  const hasMultipleRows = items.length > ROW_SIZE;
-
-  if (items.length === 0) return null;
 
   return (
-    <section className="relative z-10 bg-haven-green overflow-x-clip">
+    <section className="relative z-10 overflow-x-clip bg-haven-green pb-[clamp(6rem,12vw,14rem)]">
       <img
         src={images.sponsorsEdgeTop}
         alt=""
@@ -41,205 +21,93 @@ export default function Sponsors({ images }: { images: SiteImages }) {
         src={images.sponsorsEdgeBottom}
         alt=""
         aria-hidden="true"
-        className="absolute scale-[-1] bottom-0 w-full object-cover translate-y-[20%] md:translate-y-[40%]"
+        className="absolute scale-x-[-1] bottom-0 w-full object-cover translate-y-[20%] md:translate-y-[40%]"
       />
-      <div>
-        <img
-          src={images.sponsorsBushSmall}
-          alt=""
-          aria-hidden="true"
-          className="absolute top-7 z-[15] left-[clamp(0.5rem,5vw,1.5rem)] w-[10%] object-cover sm:top-7 sm:left-[clamp(0.5rem,5vw,1.05rem)] md:top-[clamp(3rem,3vw,5rem)] md:left-[clamp(0.5rem,5vw,1.5rem)]"
-        />
-        {hasMultipleRows && (
-          <img
-            src={images.sponsorsBushLarge}
-            alt=""
-            aria-hidden="true"
-            className="absolute top-[clamp(8.5rem,30vw,18rem)] z-10 -left-[clamp(0.5rem,5vw,1rem)] w-[30%] object-cover sm:top-[clamp(5.5rem,20vw,15rem)] sm:-left-[clamp(1.5rem,7vw,2.5rem)] md:top-[clamp(6.5rem,25vw,20rem)] md:-left-[clamp(1.5rem,7vw,2.5rem)]"
-          />
-        )}
-        <img
-          src={images.sponsorsGrassSmall}
-          alt=""
-          aria-hidden="true"
-          className="absolute top-[clamp(5rem,25vw,14rem)] z-[5] -left-[clamp(0.5rem,5vw,1rem)] w-[12%] object-cover sm:top-[clamp(4rem,18vw,14rem)] sm:-left-[clamp(0.5rem,5vw,1rem)] md:top-[clamp(5rem,22vw,30rem)] md:-left-[clamp(0.5rem,5vw,1rem)]"
-        />
-        {hasMultipleRows && (
-          <>
-            <img
-              src={images.sponsorsGrassLarge}
-              alt=""
-              aria-hidden="true"
-              className="absolute bottom-60 z-[5] -left-[clamp(1.5rem,6vw,3rem)] w-[20%] object-cover sm:bottom-75 sm:-left-[clamp(3rem,9vw,6rem)] md:bottom-[clamp(25rem,40vw,40rem)] md:-left-[clamp(3rem,9vw,6rem)]"
-            />
-            <img
-              src={images.sponsorsBushMedium}
-              alt=""
-              aria-hidden="true"
-              className="absolute bottom-52 z-[15] left-[clamp(1rem,6vw,3rem)] w-[15%] object-cover sm:bottom-60 sm:left-[clamp(1rem,6vw,3rem)] md:bottom-[clamp(15rem,30vw,50rem)] md:left-[clamp(1rem,6vw,3rem)]"
-            />
-          </>
-        )}
-        <img
-          src={images.sponsorsPumpkins}
-          alt=""
-          aria-hidden="true"
-          className="absolute top-10 -left-[clamp(2rem,15vw,6rem)] z-10 w-[25%] object-cover sm:top-15 sm:-left-[clamp(4rem,14vw,8rem)] md:top-25 md:-left-[clamp(4rem,14vw,18rem)]"
-        />
-        {hasMultipleRows && (
-          <img
-            src={images.sponsorsPumpkins}
-            alt=""
-            aria-hidden="true"
-            className="absolute bottom-30 -left-[clamp(2rem,15vw,6rem)] z-10 w-[25%] object-cover sm:bottom-35 sm:-left-[clamp(4rem,14vw,8rem)] md:bottom-[clamp(5rem,18vw,14rem)] md:-left-[clamp(4rem,15vw,17rem)]"
-          />
-        )}
-      </div>
-      <div>
-        <img
-          src={images.sponsorsBushSmall}
-          alt=""
-          aria-hidden="true"
-          className="absolute scale-x-[-1] top-7 z-[15] right-[clamp(0.5rem,5vw,1.5rem)] w-[10%] object-cover sm:top-7 sm:right-[clamp(0.5rem,5vw,1.05rem)] md:top-[clamp(3rem,3vw,5rem)] md:right-[clamp(0.5rem,5vw,1.5rem)]"
-        />
-        {hasMultipleRows && (
-          <>
-            <img
-              src={images.sponsorsBushLarge}
-              alt=""
-              aria-hidden="true"
-              className="absolute scale-x-[-1] bottom-[clamp(8rem,45vw,10rem)] z-[15] -right-[clamp(0.5rem,5vw,1rem)] w-[30%] object-cover sm:bottom-43 sm:-right-[clamp(1.5rem,7vw,2.5rem)] md:bottom-[clamp(10rem,20vw,45rem)] md:-right-[clamp(1.5rem,7vw,2.5rem)]"
-            />
-            <img
-              src={images.sponsorsGrassSmall}
-              alt=""
-              aria-hidden="true"
-              className="absolute bottom-52 z-[5] -right-[clamp(0.5rem,5vw,1rem)] w-[12%] object-cover sm:top-[clamp(4rem,18vw,14rem)] sm:-right-[clamp(0.5rem,5vw,1rem)] md:top-[clamp(5rem,22vw,30rem)] md:-right-[clamp(0.5rem,5vw,1rem)]"
-            />
-            <img
-              src={images.sponsorsGrassLarge}
-              alt=""
-              aria-hidden="true"
-              className="absolute bottom-60 z-[5] -right-[clamp(1.5rem,6vw,3rem)] w-[20%] object-cover sm:bottom-75 sm:-right-[clamp(3rem,9vw,6rem)] md:bottom-[clamp(25rem,40vw,40rem)] md:-right-[clamp(3rem,9vw,6rem)]"
-            />
-          </>
-        )}
-        <img
-          src={images.sponsorsBushMedium}
-          alt=""
-          aria-hidden="true"
-          className="absolute scale-x-[-1] top-[clamp(10rem,30vw,40rem)] z-[15] right-[clamp(1rem,6vw,3rem)] w-[15%] object-cover sm:top-[clamp(3.5rem,18vw,10rem)] sm:right-[clamp(1rem,6vw,3rem)] md:top-[clamp(6.5rem,25vw,20rem)] md:right-[clamp(1rem,6vw,3rem)]"
-        />
-        <img
-          src={images.sponsorsPumpkins}
-          alt=""
-          aria-hidden="true"
-          className="absolute top-10 -right-[clamp(2rem,15vw,6rem)] z-10 w-[25%] object-cover sm:top-15 sm:-right-[clamp(4rem,14vw,8rem)] md:top-25 md:-right-[clamp(4rem,14vw,18rem)]"
-        />
-        {hasMultipleRows && (
-          <img
-            src={images.sponsorsPumpkins}
-            alt=""
-            aria-hidden="true"
-            className="absolute bottom-60 -right-[clamp(2rem,15vw,6rem)] z-10 w-[25%] object-cover sm:bottom-75 sm:-right-[clamp(5rem,16vw,9rem)] md:bottom-[clamp(15rem,40vw,50rem)] md:-right-[clamp(5rem,16vw,19rem)]"
-          />
-        )}
-      </div>
-      <div className="pb-[clamp(8rem,20vw,40rem)]">
-        <div className="absolute grid grid-cols-[1fr_auto_1fr] z-[25] left-1/2 -translate-x-1/2 h-[clamp(2rem,7vw,5rem)] gap-[clamp(1rem,8vw,8rem)]">
-          <img
-            src={images.sponsorsHouseLeft}
-            alt=""
-            aria-hidden="true"
-            className="z-[5] h-[clamp(2rem,7vw,10rem)] object-contain justify-self-end"
-          />
-          <img
-            src={images.sponsorsHouseTop}
-            alt=""
-            aria-hidden="true"
-            className="z-[5] h-[clamp(2rem,7vw,10rem)] object-contain justify-self-center"
-          />
-          <img
-            src={images.sponsorsHouseRight}
-            alt=""
-            aria-hidden="true"
-            className="z-[5] h-[clamp(2rem,7vw,10rem)] object-contain justify-self-start"
-          />
-        </div>
-        <div className="shell relative">
-          <h2 className="absolute inset-x-0 text-center z-[25] font-display text-[clamp(1.5rem,6vw,3rem)] sm:text-display text-white translate-y-[clamp(2rem,4vw,4rem)] sm:translate-y-[clamp(2rem,6vw,4rem)] md:translate-y-[clamp(3rem,8vw,8rem)]">
-            {sponsors.heading}
-          </h2>
 
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="relative mx-auto max-w-7xl translate-y-[clamp(1rem,2vw,3rem)] sm:translate-y-[clamp(1.5rem,3vw,3rem)] md:translate-y-[clamp(2rem,6vw,4rem)]"
-              style={{ zIndex: rows.length - rowIndex }}
+      {/* Scene dressing: a bush on each side, pumpkins on the left. */}
+      <img
+        src={images.sponsorsBushSmall}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[clamp(4rem,8vw,7rem)] left-[clamp(0.5rem,3vw,2rem)] z-10 w-[clamp(4rem,10vw,7rem)] select-none"
+      />
+      <img
+        src={images.sponsorsBushSmall}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[clamp(5rem,11vw,9rem)] right-[clamp(0.5rem,3vw,2rem)] z-10 w-[clamp(4rem,9vw,6rem)] -scale-x-100 select-none"
+      />
+      <img
+        src={images.sponsorsPumpkins}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-[clamp(7rem,16vw,14rem)] -left-[clamp(2rem,8vw,6rem)] z-10 w-[clamp(7rem,16vw,13rem)] select-none"
+      />
+      <img
+        src={images.sponsorsGrassSmall}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[clamp(3rem,8vw,8rem)] right-[clamp(1rem,6vw,5rem)] z-10 w-[clamp(5rem,12vw,10rem)] select-none"
+      />
+
+      <div className="shell relative z-20 pt-[clamp(4rem,9vw,8rem)]">
+        <h2 className="text-center font-display text-[clamp(1.75rem,4vw,3rem)] leading-[0.9] text-white [text-shadow:0_0.15rem_0_rgb(0_0_0/0.15)]">
+          {sponsors.heading}
+        </h2>
+
+        <div className="mx-auto mt-[clamp(2rem,5vw,4rem)] flex w-[min(92%,52rem)] flex-col items-center gap-[clamp(1.5rem,4vw,3rem)] md:flex-row md:items-stretch md:gap-[clamp(2rem,4vw,3.5rem)]">
+          {/* The thank-you letter: a sheet of paper, slightly turned, with a
+              wax seal. The ruled paper lines keep the handwriting honest. */}
+          <article className="sponsor-letter relative flex-1 rotate-[-1.5deg] rounded-[0.75rem] bg-[#fff9ec] p-[clamp(1.25rem,3vw,2.5rem)] shadow-[0_0.5rem_1.5rem_rgb(0_0_0/0.18)] md:rotate-[-2deg]">
+            <span
+              aria-hidden="true"
+              className="absolute -top-[clamp(0.6rem,1.5vw,1rem)] -right-[clamp(0.6rem,1.5vw,1rem)] flex h-[clamp(2rem,4vw,3rem)] w-[clamp(2rem,4vw,3rem)] items-center justify-center rounded-full bg-haven-orange-deep font-display text-[clamp(0.9rem,2vw,1.4rem)] text-white shadow-[0_0.15rem_0.4rem_rgb(0_0_0/0.25)]"
             >
-              <img
-                src={rowIndex === 0 ? images.sponsorsBoxXl : images.sponsorsBoxTall}
-                alt=""
-                aria-hidden="true"
-                className={[
-                  "pointer-events-none absolute left-1/2 -z-10 w-[clamp(5rem,80vw,80rem)] -translate-x-1/2 object-contain block sm:hidden",
-                  boxRowPadding[rowIndex],
-                ].join(" ")}
-              />
-              <img
-                src={
-                  rowIndex === 0 ? images.sponsorsBoxTall : images.sponsorsBoxShort
+              ♥
+            </span>
+            <h3 className="font-display text-[clamp(1.5rem,3.5vw,2.5rem)] leading-none text-haven-orange-deep">
+              {sponsors.thanks.title}
+            </h3>
+            {sponsors.thanks.body.map((paragraph, i) => (
+              <p
+                key={i}
+                className={
+                  i === sponsors.thanks.body.length - 1
+                    ? "mt-[1em] font-display text-[clamp(1rem,2vw,1.35rem)] text-haven-brown-dark"
+                    : "mt-[1.25em] font-body text-[clamp(1rem,2vw,1.35rem)] leading-[1.5] text-haven-brown-dark"
                 }
-                alt=""
-                aria-hidden="true"
-                className={[
-                  "pointer-events-none absolute left-1/2 top-0 z-0 w-[clamp(5rem,80vw,80rem)] -translate-x-1/2 object-contain hidden sm:block",
-                  boxRowPadding[rowIndex],
-                ].join(" ")}
-              />
-              <img
-                src={images.sponsorsTrail}
-                alt=""
-                aria-hidden="true"
-                className={[
-                  "pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 object-cover w-[15%] md:w-[20%]",
-                  rowIndex === 0 ? "hidden" : "block",
-                  rowIndex === 1
-                    ? "translate-y-[clamp(1rem,4vw,3rem)] sm:-translate-y-[clamp(1rem,3vw,3rem)] md:-translate-y-[clamp(0rem,3vw,3rem)]"
-                    : "translate-y-[clamp(0rem,2vw,2rem)] sm:-translate-y-[clamp(1rem,3vw,3rem)] md:-translate-y-[clamp(0rem,3vw,3rem)]",
-                ].join(" ")}
-              />
-              <ul className="relative flex items-start z-10 gap-[2vw] sm:gap-[clamp(0rem,8vw,5rem)] pt-[clamp(3rem,14vw,12rem)] sm:pt-[clamp(3rem,8vw,8rem)] md:pt-[clamp(2rem,10vw,8rem)] px-[clamp(2rem,15vw,15rem)]">
-                {row.map((item, itemIndex) => (
-                  <li
-                    key={itemIndex}
-                    className={[
-                      "relative min-w-0 flex-1 flex flex-col items-center z-20 text-center translate-y-[clamp(0rem,vw,2rem)]",
-                      sponsorRowPadding[rowIndex],
-                    ].join(" ")}
-                  >
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener"
-                      className="block w-full transition-transform hover:scale-[1.02] active:scale-100"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="relative mx-auto h-[clamp(2rem,10vw,8rem)] z-20 w-full max-w-32 object-contain"
-                      />
-                      <p className="text-white text-[clamp(0.75rem,3.5vw,1rem)] leading-tight text-balance wrap-break-word md:text-[clamp(0.5rem,2vw,2rem)] md:leading-[1.05] md:pt-[clamp(0.5rem,1.2vw,1.2rem)]">
-                        {item.name}
-                      </p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </article>
+
+          {/* The sponsors themselves: stamps pinned next to the letter. */}
+          <ul className="flex flex-1 flex-wrap items-center justify-center gap-[clamp(1rem,2.5vw,2rem)] md:max-w-[20rem] md:flex-col">
+            {sponsors.items.map((sponsor, i) => (
+              <li key={sponsor.href}>
+                <a
+                  href={sponsor.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sponsor-stamp group flex w-[clamp(10rem,22vw,13rem)] flex-col items-center gap-2 rounded-[0.75rem] bg-[#617b52] p-[clamp(0.75rem,1.75vw,1.25rem)] shadow-[0_0.3rem_0.8rem_rgb(0_0_0/0.35)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-0 md:w-[13rem]"
+                  style={{
+                    ["--tilt" as string]: `${(i % 2 === 0 ? -1 : 1) * (1.5 + i)}deg`,
+                  }}
+                >
+                  <img
+                    src={sponsor.image}
+                    alt={sponsor.name}
+                    loading="lazy"
+                    className="max-h-[clamp(2.5rem,5vw,4rem)] w-auto max-w-full object-contain"
+                  />
+                  <span className="font-body text-[clamp(0.8rem,1.6vw,1rem)] leading-tight text-haven-orange-deep underline decoration-from-font underline-offset-4 opacity-0 transition-opacity group-hover:opacity-100">
+                    {sponsor.name}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

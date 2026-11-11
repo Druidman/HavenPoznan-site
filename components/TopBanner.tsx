@@ -21,7 +21,7 @@ export default function TopBanner() {
         </span>{" "}
         <span className="font-body text-[clamp(0.75rem,1.6vw,0.95rem)] opacity-95">
           Wydarzenie odbędzie się{" "}
-          <strong className="text-white">21 listopada</strong> jako{" "}
+          <strong className="text-white">28 listopada</strong> jako{" "}
           <strong className="text-white">jednodniowy event</strong>.
         </span>{" "}
         <span className="banner-pulse" aria-hidden="true">

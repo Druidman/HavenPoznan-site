@@ -189,7 +189,7 @@ export const havenPoznan = {
   meta: {
     title: "Haven Poznań — game jam dla nastolatków",
     description:
-      "Jednodniowy game jam dla młodzieży 13–18 lat. 21 listopada w Poznaniu. Za darmo, bez doświadczenia.",
+      "Jednodniowy game jam dla młodzieży 13–18 lat. 28 listopada w Poznaniu. Za darmo, bez doświadczenia.",
     image: "https://haven.hackclub.com/images/haven-logo-color.webp",
   },
   // A city page is named after its event, whatever the document says.
@@ -331,7 +331,7 @@ export const havenPoznan = {
     },
     days: [
       {
-        day: "Sobota, 21 listopada",
+        day: "Sobota, 28 listopada",
         items: [
           {
             time: "9:00",
@@ -482,7 +482,7 @@ export const havenPoznan = {
         q: "Gdzie i kiedy?",
         a: [
           {
-            text: "21 listopada 2026 w eNstudios, ul. Głogowska 216, Poznań. Event trwa jeden dzień — dokładne godziny znajdziesz w harmonogramie.",
+            text: "28 listopada 2026 w eNstudios, ul. Głogowska 216, Poznań. Event trwa jeden dzień — dokładne godziny znajdziesz w harmonogramie.",
           },
         ],
       },

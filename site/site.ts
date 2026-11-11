@@ -206,7 +206,7 @@ export const havenPoznan = {
   ] as { key: "signup" | "about" | "faq"; href: string }[],
   tagline: [
     "Game jam dla młodzieży 13–18",
-    "21 listopada · eNstudios, Poznań",
+    "28 listopada · eNstudios, Poznań",
   ],
   hero: {
     // City pages carry a "Contact us:" line to their own inbox.
